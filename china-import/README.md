@@ -50,6 +50,9 @@ china-import-analysis/
 │ └── raw/ # исходные CSV  
 └── sql/ # запросы для Metabase (в процессе)
 
+https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/README.md
+
+
 ## 📊 Интерактивный дашборд
 Метрики на дашборде:
 - Импорт по годам (шт)
