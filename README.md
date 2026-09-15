@@ -10,7 +10,7 @@
 
 1. Модель данных для анализа рынка СДТ (только описание и частичная схема)
 2. Шаблон для визуализации данных в Excel
-3. Анализ экспорта СДТ из Китая https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/README.md
+3. [Анализ импорта СДТ из Китая](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/README.md)
 4. Парсер данных по лизингу СДТ
 5. Что-то с BI,metabase, например
 6. Инвестиции 
