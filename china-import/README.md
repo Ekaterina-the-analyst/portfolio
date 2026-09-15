@@ -42,12 +42,12 @@
 
 ## 📁 Структура проекта 
 
-china-import-analysis/
-├── README.md
-├── notebooks/
-│ └── 01_data_preparation.ipynb
-├── data/
-│ └── raw/ # исходные CSV
+china-import-analysis/  
+├── README.md  
+├── notebooks/  
+│ └── 01_data_preparation.ipynb  
+├── data/  
+│ └── raw/ # исходные CSV  
 └── sql/ # запросы для Metabase (в процессе)
 
 ## 📊 Интерактивный дашборд
