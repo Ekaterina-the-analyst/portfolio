@@ -36,7 +36,7 @@ first_last AS (
         (SELECT total_qty FROM yearly_data WHERE year = 2023) AS qty_2023
 )
 SELECT 
-    (POWER(qty_2023 * 1.0 / qty_2020, 1.0 / 5.0) - 1) AS cagr_decimal
+    (POWER(qty_2023 * 1.0 / qty_2020, 1.0 / 3.0) - 1) AS cagr_decimal
 FROM first_last;
 ```
 
@@ -56,7 +56,7 @@ first_last AS (
         (SELECT total_qty FROM yearly_data WHERE year = 2025) AS qty_2025
 )
 SELECT 
-    (POWER(qty_2025 * 1.0 / qty_2023, 1.0 / 5.0) - 1) AS cagr_decimal
+    (POWER(qty_2025 * 1.0 / qty_2023, 1.0 / 2.0) - 1) AS cagr_decimal
 FROM first_last;
 ```
 
