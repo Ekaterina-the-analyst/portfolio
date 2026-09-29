@@ -96,4 +96,6 @@
 |<img width="44" height="45" alt="image" src="https://github.com/user-attachments/assets/6b1b3ab0-20ac-42d8-97f8-d46b2a4b3060" />|ETL-преобразования|
 |<img width="45" height="45" alt="image" src="https://github.com/user-attachments/assets/2b56d075-f4fb-4baf-8812-964b92e7a6e1" />|модель данных, связи, меры|
 |<img width="45" height="45" alt="image" src="https://github.com/user-attachments/assets/86164c49-daf4-4649-adaa-ff5f364a8121" />| обработка и преобразование, автогенерация Excel-отчётов и дашбордов|
+|<img width="45" height="45" alt="image" src="https://github.com/user-attachments/assets/9fe7617a-441b-4c7f-addd-4cefea9285aa" />|итоговая презентация для портфолио|
+
 
