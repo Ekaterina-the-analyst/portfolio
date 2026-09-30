@@ -8,7 +8,7 @@
 
 ## Проекты
 
-1. [Модель данных для анализа рынка СДТ] (https://github.com/Ekaterina-the-analyst/portfolio/blob/main/data_model/README.md)
+1. [Модель данных для анализа рынка СДТ](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/data_model/README.md)
 2. Шаблон для визуализации данных в Excel
 3. [Анализ импорта СДТ из Китая](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/README.md)
 4. Парсер данных по лизингу СДТ
