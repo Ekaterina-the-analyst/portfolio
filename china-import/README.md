@@ -38,7 +38,7 @@
 
 ---
 
-## Ключевые результаты: кратко
+## Резюме
 
 Коротко — что показал анализ (детали ниже):
 
@@ -73,7 +73,7 @@ china-import/
 
 ---
 
-## Ключевые результаты
+## Результаты анализа
 
 ### 1. Динамика импорта: три периода
 
@@ -89,11 +89,8 @@ china-import/
 
 Однако структура в динамике неоднородна:
 
-| Продукт | Доля 2015 | Доля 2025 |
-|---|---|---|
-| Фронтальные погрузчики | 81% | 39% |
-| Гусеничные экскаваторы | 2% | 39% |
-| Экскаваторы-погрузчики | 2% | 18% |
+<img width="600" height="400" alt="Metabase-Изменение доли_ продукты _ 15%-27 10 2026, 18_28_20" src="https://github.com/user-attachments/assets/31c24272-488d-4c80-a273-9252231966f1" />
+
 
 ### 3. CAGR по продуктам
 
@@ -119,13 +116,14 @@ china-import/
 * Агрегированные данные таможни не дают разбивки по брендам и моделям.
 * Гипотезы о причинах роста (замещение западных производителей, рост компетенций китайских брендов) требуют проверки на детальных данных.
 * Данные завершаются июнем 2026 года.
+* Metabase развернут локально в Docker, поэтому для просмотра прилагается PDF-отчет
 
 ---
 
 [Полный отчет, выполненный в Metabase (pdf)](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82%D0%B0%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%20%D0%B8%D0%B7%20%D0%9A%D0%B8%D1%82%D0%B0%D1%8F%20%D0%B2%20%D0%A0%D0%A4.pdf)
 
-## Артефакты
+## Ресурсы
 
 * [Ноутбук подготовки данных](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/notebooks/01_data_preparation_and_export.ipynb)
 * [SQL-запросы для Metabase](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/SQL/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20Metabase.md)
-* [Исходные данные](https://github.com/Ekaterina-the-analyst/portfolio/tree/main/china-import/data/row)
+* [Исходные данные](https://github.com/Ekaterina-the-analyst/portfolio/tree/main/china-import/data/raw)
