@@ -62,5 +62,7 @@
 * Основы статистики (2018)
 
 ## Контакты
-**Email:** [ekaterina.a.3@yandex.ru](mailto:ekaterina.a.3@yandex.ru)
+
+**Email:** [ekaterina.a.3@yandex.ru](mailto:ekaterina.a.3@yandex.ru)  
+
 **Telegram:** @katjun17
