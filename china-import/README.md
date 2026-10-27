@@ -54,7 +54,7 @@
 | Инструмент | Задача |
 |---|---|
 | <img width="45" height="45" alt="image" src="https://github.com/user-attachments/assets/86164c49-daf4-4649-adaa-ff5f364a8121" /> | Загрузка, очистка, преобразование, подготовка данных |
-| [Jupyter Notebook](https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Jupyter_logo.svg) | Среда разработки и документация пайплайна |
+| <img width="45" height="45" alt="image" src="https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B9%D0%BB:Jupyter_logo.svg"/> | Среда разработки и документация пайплайна |
 | SQL (SQLite) | Хранение подготовленных данных, аналитические запросы |
 | Metabase (Docker) | Визуализация, дашборды, интерактивные фильтры |
 
