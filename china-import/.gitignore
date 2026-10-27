@@ -1,0 +1,15 @@
+# Секреты
+.env
+
+# Данные и артефакты
+*.sqlite
+*.db
+
+# Jupyter
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# ОС
+.DS_Store
+Thumbs.db
