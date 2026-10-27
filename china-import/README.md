@@ -117,6 +117,6 @@
 
 ## Артефакты
 
-* [Ноутбук подготовки данных]([china-import/notebooks/01_data_preparation_and_export.ipynb](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/notebooks/01_data_preparation_and_export.ipynb))
-* [SQL-запросы для Metabase](china-import/SQL/Запросы для Metabase.md)
-* [Исходные данные](data/raw/)
+* [Ноутбук подготовки данных](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/notebooks/01_data_preparation_and_export.ipynb)
+* [SQL-запросы для Metabase](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/SQL/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20Metabase.md)
+* [Исходные данные](https://github.com/Ekaterina-the-analyst/portfolio/tree/main/china-import/data/row)
