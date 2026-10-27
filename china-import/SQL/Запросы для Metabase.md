@@ -56,7 +56,7 @@ FROM grouped g
 CROSS JOIN grand gr
 ORDER BY g.sort_flag, g.total_units DESC;
 ```
-###3. Запрос для расчета, во сколько раз вырос импорт по продуктам
+### 3. Запрос для расчета, во сколько раз вырос импорт по продуктам
 ```sql
 -- Во сколько раз выросли units с 2015 по 2025 по продуктам
 SELECT
@@ -77,6 +77,53 @@ FROM (
 ) AS yearly
 GROUP BY product
 ORDER BY growth_ratio DESC;
+```
+### 4. Запросы для расчета изменения долей продуктов
+
+```sql
+-- Доли продуктов в общем импорте — только КРУПНЫЕ (доля >= 15% в 2025)
+-- Для мелких: замени >= на < в блоке product_groups
+
+WITH yearly_total AS (
+    SELECT year, SUM(units) AS grand_total
+    FROM china_imp
+    WHERE year IN ('2015', '2025')
+    GROUP BY year
+),
+product_year AS (
+    SELECT product, year, SUM(units) AS product_total
+    FROM china_imp
+    WHERE year IN ('2015', '2025')
+    GROUP BY product, year
+),
+shares AS (
+    SELECT
+        py.product,
+        py.year,
+        ROUND(py.product_total  / yt.grand_total, 2) AS share_pct
+    FROM product_year py
+    JOIN yearly_total yt ON py.year = yt.year
+),
+product_groups AS (
+    SELECT
+        product,
+        MAX(CASE WHEN year = '2025' THEN share_pct END) AS share_2025,
+        CASE
+            WHEN MAX(CASE WHEN year = '2025' THEN share_pct END) >= 0.15 THEN 'Крупные'
+            ELSE 'Мелкие'
+        END AS product_group
+    FROM shares
+    GROUP BY product
+)
+SELECT
+    s.product,
+    s.year,
+    s.share_pct
+FROM shares s
+JOIN product_groups pg ON s.product = pg.product
+WHERE pg.product_group = 'Крупные'
+-- Аналогичный запрос для мелких продуктов
+ORDER BY s.product, s.year;
 ```
 ## Запросы для расчета CAGR
 
