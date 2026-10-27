@@ -63,7 +63,7 @@ china-import/
 ├── data/  
 │   └── raw/                        # Исходные CSV (таможенная статистика)  
 ├── notebooks/  
-│   └── 01_data_preparation.ipynb   # Предобработка данных и выгрузка в MySQL (Python)  
+│   └── 01_data_preparation_and_export.ipynb   # Предобработка данных и выгрузка в MySQL (Python)  
 ├── .env.example                    # Шаблон переменных окружения  
 ├── .gitignore                      # Исключения для Git  
 ├── Анализ импорта строительной техники из Китая в РФ.pdf   # Дашборды Metabase в PDF  
@@ -108,20 +108,18 @@ china-import/
 <img width="2096" height="1028" alt="Metabase-Сезонность импорта из Китая, шт-27 10 2026, 17_35_09" src="https://github.com/user-attachments/assets/0b304bf5-74c5-434c-9e84-414317f7121b" />
 
 ---
-
 ## Ограничения
 
 * Агрегированные данные таможни не дают разбивки по брендам и моделям.
 * Гипотезы о причинах роста (замещение западных производителей, рост компетенций китайских брендов) требуют проверки на детальных данных.
 * Данные завершаются июнем 2026 года.
-* Metabase развернут локально в Docker, поэтому для просмотра прилагается PDF-отчет
+* Интерактивный дашборд работает локально в Metabase (Docker). Статичная версия со всеми графиками доступна в PDF-отчете.
 
 ---
 
-[Полный отчет, выполненный в Metabase (pdf)](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82%D0%B0%20%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%20%D0%B8%D0%B7%20%D0%9A%D0%B8%D1%82%D0%B0%D1%8F%20%D0%B2%20%D0%A0%D0%A4.pdf)
+## Материалы проекта
 
-## Ресурсы
-
-* [Ноутбук подготовки данных](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/notebooks/01_data_preparation_and_export.ipynb)
-* [SQL-запросы для Metabase](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/SQL/%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20Metabase.md)
-* [Исходные данные](https://github.com/Ekaterina-the-analyst/portfolio/tree/main/china-import/data/raw)
+* 📄 **[Полный отчет с дашбордами (PDF)](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/Анализ%20импорта%20строительной%20техники%20из%20Китая%20в%20РФ.pdf)**
+* 💻 **[Ноутбук подготовки данных (Jupyter)](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/notebooks/01_data_preparation_and_export.ipynb)**
+* 🗄 **[SQL-запросы для Metabase](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/china-import/SQL/Запросы%20для%20Metabase.md)**
+* 📊 **[Исходные данные (CSV)](https://github.com/Ekaterina-the-analyst/portfolio/tree/main/china-import/data/raw)**
