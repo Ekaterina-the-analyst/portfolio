@@ -82,7 +82,6 @@ ORDER BY growth_ratio DESC;
 
 ```sql
 -- Доли продуктов в общем импорте — только КРУПНЫЕ (доля >= 15% в 2025)
--- Для мелких: замени >= на < в блоке product_groups
 
 WITH yearly_total AS (
     SELECT year, SUM(units) AS grand_total
