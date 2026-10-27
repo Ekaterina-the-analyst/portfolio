@@ -105,7 +105,7 @@
 *	Обеспечено высокое качество анализа рынка после потери основного источника (таможенных данных) за счёт интеграции базы лизинга.
 ---
 
-[Полная презентация о проекте](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/data_model/%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.pdf))
+[Полная презентация о проекте](https://github.com/Ekaterina-the-analyst/portfolio/blob/main/data_model/%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.pdf)
 
 ## Стек
 
