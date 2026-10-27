@@ -9,7 +9,51 @@ WHERE year IN ('2025', '2026')
   AND month <= (SELECT MAX(month) FROM china_imp WHERE year = '2026')
 GROUP BY year;
 ```
+2. Структура импорта по продукта
+```sql
+-- Доли Топ-3 продуктов + «прочие» за весь период
+-- Топ-3 определяются по суммарному импорту 
+-- «прочие» всегда последние
 
+WITH product_totals AS (
+    SELECT
+        product,
+        SUM(units) AS total_units
+    FROM china_imp
+    GROUP BY product
+),
+ranked AS (
+    SELECT
+        product,
+        total_units,
+        ROW_NUMBER() OVER (ORDER BY total_units DESC) AS rn
+    FROM product_totals
+),
+grouped AS (
+    SELECT
+        CASE
+            WHEN rn <= 3 THEN product
+            ELSE 'прочие'
+        END AS product_group,
+        CASE
+            WHEN rn <= 3 THEN 0
+            ELSE 1
+        END AS sort_flag,
+        SUM(total_units) AS total_units
+    FROM ranked
+    GROUP BY product_group, sort_flag
+),
+grand AS (
+    SELECT SUM(total_units) AS grand_total FROM grouped
+)
+SELECT
+    g.product_group,
+    g.total_units,
+    ROUND(g.total_units * 100.0 / gr.grand_total, 1) AS share_pct
+FROM grouped g
+CROSS JOIN grand gr
+ORDER BY g.sort_flag, g.total_units DESC;
+```
 # Запросы для расчета CAGR
 
 1. CAGR 2015 - 2020 по общим данным
