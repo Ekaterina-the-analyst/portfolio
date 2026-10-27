@@ -60,16 +60,16 @@
 
 ## Структура проекта
 
-china-import/
-├── SQL/                            # Запросы для Metabase
-├── data/
-│   └── raw/                        # Исходные CSV (таможенная статистика)
-├── notebooks/
-│   └── 01_data_preparation.ipynb   # Предобработка данных и выгрузка в MySQL (Python)
-├── .env.example                    # Шаблон переменных окружения
-├── .gitignore                      # Исключения для Git
-├── Анализ импорта строительной техники из Китая в РФ.pdf   # Дашборды Metabase в PDF
-└── README.md                       # Описание проекта
+china-import/  
+├── SQL/                            # Запросы для Metabase  
+├── data/  
+│   └── raw/                        # Исходные CSV (таможенная статистика)  
+├── notebooks/  
+│   └── 01_data_preparation.ipynb   # Предобработка данных и выгрузка в MySQL (Python)  
+├── .env.example                    # Шаблон переменных окружения  
+├── .gitignore                      # Исключения для Git  
+├── Анализ импорта строительной техники из Китая в РФ.pdf   # Дашборды Metabase в PDF  
+└── README.md                       # Описание проекта  
 
 ---
 
