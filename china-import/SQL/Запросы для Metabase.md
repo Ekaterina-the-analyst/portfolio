@@ -124,6 +124,38 @@ WHERE pg.product_group = 'Крупные'
 -- Аналогичный запрос для мелких продуктов
 ORDER BY s.product, s.year;
 ```
+
+### 5. Динамика средних цен
+
+```sql
+-- Изменение средней цены за штуку: 2015 → 2025, в %
+WITH product_year AS (
+    SELECT
+        product,
+        year,
+        SUM(units) AS total_units,
+        SUM(usd) AS total_usd
+    FROM china_imp
+    WHERE year IN ('2015', '2025')
+    GROUP BY product, year
+),
+prices AS (
+    SELECT
+        product,
+        MAX(CASE WHEN year = '2015' THEN total_usd * 1.0 / NULLIF(total_units, 0) END) AS price_2015,
+        MAX(CASE WHEN year = '2025' THEN total_usd * 1.0 / NULLIF(total_units, 0) END) AS price_2025
+    FROM product_year
+    GROUP BY product
+)
+SELECT
+    product as 'продукт',
+    ROUND(price_2015, 0) AS 'цена_2015',
+    ROUND(price_2025, 0) AS 'цена_2025',
+    ROUND((price_2025  / NULLIF(price_2015, 0) - 1) , 2) AS 'изменение'
+FROM prices
+WHERE price_2015 IS NOT NULL AND price_2025 IS NOT NULL
+ORDER BY ROUND((price_2025  / NULLIF(price_2015, 0) - 1) , 2) DESC;
+```
 ## Запросы для расчета CAGR
 
 ### 1. CAGR 2015 - 2020 по общим данным
