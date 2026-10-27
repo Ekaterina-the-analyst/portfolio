@@ -1,5 +1,8 @@
-# 01. Базовые запросы по общим данным
-1. Запрос для гистограммы сравнения имеющихся данных за 2026 год с соответствующим периодом прошлого года
+# SQL-Запросы для Metabase
+Часть графиков отчета строится через конструктор Metabase. Для более сложных используются sql-запросы, продублированные в этом файле
+
+## 01. Базовые запросы по общим данным
+### 1. Запрос для гистограммы сравнения имеющихся данных за 2026 год с соответствующим периодом прошлого года
 ```sql
 SELECT
     CONCAT(year, '') AS year,
@@ -9,11 +12,10 @@ WHERE year IN ('2025', '2026')
   AND month <= (SELECT MAX(month) FROM china_imp WHERE year = '2026')
 GROUP BY year;
 ```
-2. Структура импорта по продукта
+###2. Структура импорта по продукта
 ```sql
--- Доли Топ-3 продуктов + «прочие» за весь период
--- Топ-3 определяются по суммарному импорту 
--- «прочие» всегда последние
+-- Top-3 продукта + «прочие» за весь период (Top-3 определяется по суммарному импорту)
+-- сортировка с учетом "прочих" в конце
 
 WITH product_totals AS (
     SELECT
@@ -54,7 +56,29 @@ FROM grouped g
 CROSS JOIN grand gr
 ORDER BY g.sort_flag, g.total_units DESC;
 ```
-# Запросы для расчета CAGR
+###3. Запрос для расчета, во сколько раз вырос импорт по продуктам
+```sql
+-- Во сколько раз выросли units с 2015 по 2025 по продуктам
+SELECT
+    product,
+    ROUND(
+        MAX(CASE WHEN year = 2025 THEN total_units END) * 1.0
+        / NULLIF(MAX(CASE WHEN year = 2015 THEN total_units END), 0),
+        1
+    ) AS growth_ratio
+FROM (
+    SELECT
+        product,
+        year,
+        SUM(units) AS total_units
+    FROM china_imp
+    WHERE year IN ('2015', '2025')
+    GROUP BY product, year
+) AS yearly
+GROUP BY product
+ORDER BY growth_ratio DESC;
+```
+## Запросы для расчета CAGR
 
 1. CAGR 2015 - 2020 по общим данным
 ```sql
@@ -73,50 +97,13 @@ first_last AS (
 )
 SELECT 
     (POWER(qty_2020 * 1.0 / qty_2015, 1.0 / 5.0) - 1) AS cagr_decimal
+-- аналогичные запросы для других периодов.
+--  (POWER(qty_2023 * 1.0 / qty_2020, 1.0 / 3.0) - 1) AS cagr_decimal
+--  (POWER(qty_2025 * 1.0 / qty_2023, 1.0 / 2.0) - 1) AS cagr_decimal
 FROM first_last;
 ```
 
-2. CAGR 2020 - 2023 по общим данным
-```sql
-WITH yearly_data AS (
-    SELECT 
-        year,
-        SUM(units) AS total_qty
-    FROM china_imp
-    WHERE year BETWEEN 2020 AND 2023
-    GROUP BY year
-),
-first_last AS (
-    SELECT
-        (SELECT total_qty FROM yearly_data WHERE year = 2020) AS qty_2020,
-        (SELECT total_qty FROM yearly_data WHERE year = 2023) AS qty_2023
-)
-SELECT 
-    (POWER(qty_2023 * 1.0 / qty_2020, 1.0 / 3.0) - 1) AS cagr_decimal
-FROM first_last;
-```
-
-3. CAGR 2023 - 2025 по общим данным
-```sql
-WITH yearly_data AS (
-    SELECT 
-        year,
-        SUM(units) AS total_qty
-    FROM china_imp
-    WHERE year BETWEEN 2023 AND 2025
-    GROUP BY year
-),
-first_last AS (
-    SELECT
-        (SELECT total_qty FROM yearly_data WHERE year = 2023) AS qty_2023,
-        (SELECT total_qty FROM yearly_data WHERE year = 2025) AS qty_2025
-)
-SELECT 
-    (POWER(qty_2025 * 1.0 / qty_2023, 1.0 / 2.0) - 1) AS cagr_decimal
-FROM first_last;
-```
-
-4. Таблица CAGR по всем продуктам и периодам
+2. Таблица CAGR по всем продуктам и периодам
 ```sql
 -- CAGR по продуктам и периодам в виде таблицы
 -- Периоды: 2015-2020 (n=5), 2020-2023 (n=3), 2023-2025 (n=2)
